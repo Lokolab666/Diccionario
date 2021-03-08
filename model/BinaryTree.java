@@ -1,14 +1,12 @@
-package Model;
+package model;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Stack;
 
-import Model.Node;
 
-
-public class BynaryTree<T> {
+public class BinaryTree<T> {
 
 
 	private ArrayList<T> out;
@@ -16,7 +14,7 @@ public class BynaryTree<T> {
 	private Node<T> root;
 	private int aux;
 
-	public BynaryTree(Comparator<T> comparator) {
+	public BinaryTree(Comparator<T> comparator) {
 		this.comparator=comparator;
 		out=new ArrayList<T>();
 	}
