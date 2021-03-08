@@ -1,4 +1,4 @@
-package model;
+package logic;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
