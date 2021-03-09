@@ -11,8 +11,11 @@ public class MainWindow extends JFrame implements Actioner {
     private JLabel header;
     private JLabel footer;
 
-    //Texts
-    private JLabel textWelcome;
+    //Class
+    private MenuWindow menuWindow;
+    private AddEditWindow addEditWindow;
+
+
 
 
     public MainWindow(){
@@ -21,6 +24,7 @@ public class MainWindow extends JFrame implements Actioner {
         this.setSize( 1200, 720 );
         this.setLocation( 100,100 );
         this.setExtendedState(MAXIMIZED_BOTH);
+        this.setTitle("Tu Diccionario");
         Image iconWindow= new ImageIcon(getClass().getResource("/logoTuDiccionario.png")).getImage();
         setIconImage( iconWindow );
         this.setIconImage( iconWindow );
@@ -28,7 +32,6 @@ public class MainWindow extends JFrame implements Actioner {
         this.getContentPane().setBackground(new Color( 27,31,64 ));
 
         components();
-        styleComponents();
         addComponent();
 
     }
@@ -49,24 +52,22 @@ public class MainWindow extends JFrame implements Actioner {
         footer.setIcon(new ImageIcon(bannerFoot));
         footer.setBounds(0,595,1400,110);
 
-        //Text
-        String texto = "<html><body>Bienvenido a Tu Diccionario, el libro virtual de las definiciones<br>Por favor, seleccione una opción de preferencia<br></body></html>";
-        textWelcome = new JLabel(texto);
+        //Class
+        menuWindow = new MenuWindow();
+        menuWindow.setBackground(new Color( 27,31,64 ));
+        menuWindow.setBounds(53,130,1200,400);
 
-
-        textWelcome.setBounds(50,130, 732,87);
+        addEditWindow = new AddEditWindow();
+        addEditWindow.setBackground(new Color( 27,31,64 ));
+        addEditWindow.setBounds(53,130,1200,400);
 
 
     }
 
-    public void styleComponents() {
-        textWelcome.setFont(new Font("Brawler", Font.PLAIN, 24));
-        textWelcome.setForeground(Color.WHITE);
 
-    }
 
     public void addComponent() {
-        add(textWelcome);
+        add(menuWindow);
         add(header);
         add(footer);
 
@@ -76,6 +77,9 @@ public class MainWindow extends JFrame implements Actioner {
     public void initialMenu( Controller controller ){
         setVisible(true);
 
+        menuWindow.actionMenuWindow(controller);
+        addEditWindow.actionAddEditWindow(controller);
+
 
     }
 
@@ -83,10 +87,35 @@ public class MainWindow extends JFrame implements Actioner {
     @Override
     public void active(String window) {
 
+        if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
+            //TODO Agregar la ventana para agregar y editar palabra (es la misma mompi)
+            addEditWindow.setVisible(true);
+
+            add(addEditWindow);
+        }
+
+        else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
+
+        }
     }
 
     @Override
     public void inactive(String window) {
+
+    }
+
+    @Override
+    public String[] captureData(String window) {
+        return new String[0];
+    }
+
+    @Override
+    public void showData(String window) {
+
+    }
+
+    @Override
+    public void showMessage(String window) {
 
     }
 }
