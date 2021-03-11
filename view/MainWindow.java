@@ -14,7 +14,7 @@ public class MainWindow extends JFrame implements Actioner {
     //Class
     private MenuWindow menuWindow;
     private AddEditWindow addEditWindow;
-
+    private SearchEditWindow searchEditWindow;
 
 
 
@@ -61,6 +61,11 @@ public class MainWindow extends JFrame implements Actioner {
         addEditWindow.setBackground(new Color( 27,31,64 ));
         addEditWindow.setBounds(53,130,1250,400);
 
+        searchEditWindow = new SearchEditWindow();
+        searchEditWindow.setBackground(new Color( 27,31,64 ));
+        searchEditWindow.setBounds(53,130,1250,400);
+
+
 
     }
 
@@ -79,6 +84,7 @@ public class MainWindow extends JFrame implements Actioner {
 
         menuWindow.actionMenuWindow(controller);
         addEditWindow.actionAddEditWindow(controller);
+        searchEditWindow.actionSearchEditWindow(controller);
 
 
     }
@@ -91,10 +97,44 @@ public class MainWindow extends JFrame implements Actioner {
             //TODO Agregar la ventana para agregar y editar palabra (es la misma mompi)
             addEditWindow.setVisible(true);
             add(addEditWindow);
+
+            //Components
+            addEditWindow.getButtonSendNewWord().setVisible(true);
         }
 
         else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
+            searchEditWindow.setVisible(true);
+            add(searchEditWindow);
 
+            //Components
+            searchEditWindow.getButtonSearchWord().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.SHOWORDMENUWINDOW) ){
+
+        }
+
+        else if ( window.equals(Actioner.EDITWORDMENUWINDOW) ){
+            addEditWindow.setVisible(true);
+            add(addEditWindow);
+
+            //Components
+            addEditWindow.getButtonSendEditWord().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.DELETEWORDMENUWINDOW) ){
+            searchEditWindow.setVisible(true);
+            add(searchEditWindow);
+
+            //Components
+            searchEditWindow.getButtonSearchDeleteWord().setVisible(true);
+        }
+
+
+        //Clic en las otras ventanas
+        else if ( window.equals(Actioner.SENDNEWWORD) || window.equals(Actioner.SENDEDITWORD) || window.equals(Actioner.BACKTOMENU)){
+            menuWindow.setVisible(true);
+            add(menuWindow);
         }
     }
 
@@ -104,17 +144,92 @@ public class MainWindow extends JFrame implements Actioner {
         if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
             menuWindow.setVisible(false);
             remove(menuWindow);
+
+            //Components
+            addEditWindow.getButtonSendEditWord().setVisible(false);
         }
 
         else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
+            menuWindow.setVisible(false);
+            remove(menuWindow);
+
+            //Components
+            searchEditWindow.getButtonSearchEditWord().setVisible(false);
+            searchEditWindow.getButtonSearchDeleteWord().setVisible(false);
+        }
+
+        else if ( window.equals(Actioner.SHOWORDMENUWINDOW) ){
+            menuWindow.setVisible(false);
+            remove(menuWindow);
+
+
+        }
+
+        else if ( window.equals(Actioner.EDITWORDMENUWINDOW) ){
+            menuWindow.setVisible(false);
+            remove(menuWindow);
+
+            //Components
+            addEditWindow.getButtonSendNewWord().setVisible(false);
+        }
+
+        else if ( window.equals(Actioner.DELETEWORDMENUWINDOW) ){
+            menuWindow.setVisible(false);
+            remove(menuWindow);
+
+            //Components
+            searchEditWindow.getButtonSearchEditWord().setVisible(false);
+            searchEditWindow.getButtonSearchWord().setVisible(false);
+        }
+
+
+
+
+        else if ( window.equals(Actioner.SENDNEWWORD) || window.equals(Actioner.SENDEDITWORD) ){
             addEditWindow.setVisible(false);
             remove(addEditWindow);
         }
+
+        else if ( window.equals(Actioner.BACKTOMENU) ){
+            addEditWindow.setVisible(false);
+            remove(addEditWindow);
+
+            searchEditWindow.setVisible(false);
+            remove(searchEditWindow);
+        }
+
+
+
+
     }
 
     @Override
     public String[] captureData(String window) {
+
+        if ( window.equals(Actioner.SENDNEWWORD) ){
+            String[] dataEntryNewWord = {
+                    addEditWindow.getBoxSaveWord().getText(),
+                    addEditWindow.getBoxSaveMeaning().getText(),
+                    addEditWindow.getBoxSaveTranslate().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntryNewWord;
+        }
+
+        else if ( window.equals(Actioner.SENDEDITWORD) ){
+            String[] dataEntryEditWord = {
+                    addEditWindow.getBoxSaveWord().getText(),
+                    addEditWindow.getBoxSaveMeaning().getText(),
+                    addEditWindow.getBoxSaveTranslate().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntryEditWord;
+        }
         return new String[0];
+
+
     }
 
     @Override
@@ -125,5 +240,11 @@ public class MainWindow extends JFrame implements Actioner {
     @Override
     public void showMessage(String window) {
 
+    }
+
+    private void cleanSpace() {
+        addEditWindow.getBoxSaveMeaning().setText("");
+        addEditWindow.getBoxSaveWord().setText("");
+        addEditWindow.getBoxSaveTranslate().setText("");
     }
 }

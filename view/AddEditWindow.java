@@ -65,7 +65,7 @@ public class AddEditWindow extends JPanel {
         buttonSendEditWord.setBounds(890,200,207,57);
 
         buttonBackToMenu = new JButton(new ImageIcon(imageButtonBackToMenu));
-        buttonBackToMenu.setBounds(890,100,207,47);
+        buttonBackToMenu.setBounds(890,100,207,57);
 
     }
 
@@ -133,5 +133,17 @@ public class AddEditWindow extends JPanel {
 
     public JButton getButtonBackToMenu() {
         return buttonBackToMenu;
+    }
+
+    public JTextField getBoxSaveWord() {
+        return boxSaveWord;
+    }
+
+    public JTextArea getBoxSaveMeaning() {
+        return boxSaveMeaning;
+    }
+
+    public JTextField getBoxSaveTranslate() {
+        return boxSaveTranslate;
     }
 }

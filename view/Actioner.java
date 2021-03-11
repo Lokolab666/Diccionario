@@ -14,6 +14,11 @@ public interface Actioner {
     public static String SENDEDITWORD = "sendEditWord";
     public static String BACKTOMENU = "backToMenu";
 
+    //SearchEditWindow
+    public static String SEARCHWORD = "searchWord";
+    public static String SEARCHEDITWORD = "searchEditWord";
+    public static String SEARCHDELETEWORD = "searchEditWord";
+
 
     public void active(String window);
     public void inactive(String window);
