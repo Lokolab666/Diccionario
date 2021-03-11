@@ -115,11 +115,13 @@ public class MainWindow extends JFrame implements Actioner {
         }
 
         else if ( window.equals(Actioner.EDITWORDMENUWINDOW) ){
-            addEditWindow.setVisible(true);
-            add(addEditWindow);
+
+            searchEditWindow.setVisible(true);
+            add(searchEditWindow);
 
             //Components
-            addEditWindow.getButtonSendEditWord().setVisible(true);
+            searchEditWindow.getButtonSearchEditWord().setVisible(true);
+
         }
 
         else if ( window.equals(Actioner.DELETEWORDMENUWINDOW) ){
@@ -128,6 +130,15 @@ public class MainWindow extends JFrame implements Actioner {
 
             //Components
             searchEditWindow.getButtonSearchDeleteWord().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.SEARCHEDITWORD) ){
+
+            addEditWindow.setVisible(true);
+            add(addEditWindow);
+
+            //Components
+            addEditWindow.getButtonSendEditWord().setVisible(true);
         }
 
 
@@ -170,7 +181,9 @@ public class MainWindow extends JFrame implements Actioner {
             remove(menuWindow);
 
             //Components
-            addEditWindow.getButtonSendNewWord().setVisible(false);
+            searchEditWindow.getButtonSearchDeleteWord().setVisible(false);
+            searchEditWindow.getButtonSearchWord().setVisible(false);
+
         }
 
         else if ( window.equals(Actioner.DELETEWORDMENUWINDOW) ){
@@ -198,7 +211,13 @@ public class MainWindow extends JFrame implements Actioner {
             remove(searchEditWindow);
         }
 
+        else if ( window.equals(Actioner.SEARCHEDITWORD) ){
+            searchEditWindow.setVisible(false);
+            remove(searchEditWindow);
 
+            //Components TODO
+            addEditWindow.getButtonSendNewWord().setVisible(false);
+        }
 
 
     }

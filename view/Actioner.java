@@ -17,7 +17,7 @@ public interface Actioner {
     //SearchEditWindow
     public static String SEARCHWORD = "searchWord";
     public static String SEARCHEDITWORD = "searchEditWord";
-    public static String SEARCHDELETEWORD = "searchEditWord";
+    public static String SEARCHDELETEWORD = "searchDeleteWord";
 
 
     public void active(String window);

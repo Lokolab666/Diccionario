@@ -70,10 +70,10 @@ public class Controller implements ActionListener {
                 break;
 
             case Actioner.SENDEDITWORD:
-                captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
 
-                actioner.inactive( Actioner.SENDEDITWORD );
+                actioner.inactive( Actioner.SENDEDITWORD);
                 actioner.active( Actioner.SENDEDITWORD );
+
                 break;
 
             case Actioner.BACKTOMENU:
@@ -82,7 +82,13 @@ public class Controller implements ActionListener {
 
                 break;
 
-
+            case Actioner.SEARCHEDITWORD:
+                //captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
+                // if (la palabra existe){
+                actioner.inactive( Actioner.SEARCHEDITWORD );
+                actioner.active( Actioner.SEARCHEDITWORD );
+                // }
+                break;
 
 
 
