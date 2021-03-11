@@ -38,7 +38,7 @@ public class MenuWindow extends JPanel{
         firstSpace = new JLabel("");
         secondSpace = new JLabel("");
 
-        //Buttons for image
+        //Image for buttons
         Image addButtonAddImage = new ImageIcon(getClass().getResource("/imageButton1.png")).getImage();
         Image addButtonSearchImage = new ImageIcon(getClass().getResource("/imageButton2.png")).getImage();
         Image addButtonShowImage = new ImageIcon(getClass().getResource("/imageButton3.png")).getImage();

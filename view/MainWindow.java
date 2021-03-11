@@ -59,7 +59,7 @@ public class MainWindow extends JFrame implements Actioner {
 
         addEditWindow = new AddEditWindow();
         addEditWindow.setBackground(new Color( 27,31,64 ));
-        addEditWindow.setBounds(53,130,1200,400);
+        addEditWindow.setBounds(53,130,1250,400);
 
 
     }
@@ -90,7 +90,6 @@ public class MainWindow extends JFrame implements Actioner {
         if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
             //TODO Agregar la ventana para agregar y editar palabra (es la misma mompi)
             addEditWindow.setVisible(true);
-
             add(addEditWindow);
         }
 
@@ -102,6 +101,15 @@ public class MainWindow extends JFrame implements Actioner {
     @Override
     public void inactive(String window) {
 
+        if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
+            menuWindow.setVisible(false);
+            remove(menuWindow);
+        }
+
+        else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
+            addEditWindow.setVisible(false);
+            remove(addEditWindow);
+        }
     }
 
     @Override
