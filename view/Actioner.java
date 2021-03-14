@@ -19,11 +19,17 @@ public interface Actioner {
     public static String SEARCHEDITWORD = "searchEditWord";
     public static String SEARCHDELETEWORD = "searchDeleteWord";
 
+    //ViewWindow
+    public static String VIEWALETTER = "showOnlyALetter";
+    public static String VIEWALLLETTER = "showAllLetters";
+    public static String VIEWSEARHALETTER = "searchToWordForView";
+
+
 
     public void active(String window);
     public void inactive(String window);
     public String[] captureData(String window);
-    public void showData(String window);
-    public void showMessage(String window);
+    public void showData(String[][] out, String window);
+    public void showMessage(String message);
 
 }

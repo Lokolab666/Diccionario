@@ -15,6 +15,7 @@ public class MainWindow extends JFrame implements Actioner {
     private MenuWindow menuWindow;
     private AddEditWindow addEditWindow;
     private SearchEditWindow searchEditWindow;
+    private ViewWindow viewWindow;
 
 
 
@@ -65,6 +66,10 @@ public class MainWindow extends JFrame implements Actioner {
         searchEditWindow.setBackground(new Color( 27,31,64 ));
         searchEditWindow.setBounds(53,130,1250,400);
 
+        viewWindow = new ViewWindow();
+        viewWindow.setBackground(new Color(27,31,64));
+        viewWindow.setBounds(53,130,1250,400);
+
 
 
     }
@@ -85,6 +90,7 @@ public class MainWindow extends JFrame implements Actioner {
         menuWindow.actionMenuWindow(controller);
         addEditWindow.actionAddEditWindow(controller);
         searchEditWindow.actionSearchEditWindow(controller);
+        viewWindow.actionViweWindow(controller);
 
 
     }
@@ -111,6 +117,8 @@ public class MainWindow extends JFrame implements Actioner {
         }
 
         else if ( window.equals(Actioner.SHOWORDMENUWINDOW) ){
+            viewWindow.setVisible(true);
+            add(viewWindow);
 
         }
 
@@ -147,6 +155,23 @@ public class MainWindow extends JFrame implements Actioner {
             menuWindow.setVisible(true);
             add(menuWindow);
         }
+
+        else if ( window.equals(Actioner.VIEWALETTER) ){
+            //Components
+            viewWindow.getTextToSearchView().setVisible(true);
+            viewWindow.getBoxSaveWordToView().setVisible(true);
+            viewWindow.getButtonSearchToView().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.VIEWSEARHALETTER) ){
+            viewWindow.getjScrollPaneShowLetter().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.VIEWALLLETTER) ){
+            viewWindow.getjScrollPaneShowAllLetter().setVisible(true);
+        }
+
+
     }
 
     @Override
@@ -172,6 +197,16 @@ public class MainWindow extends JFrame implements Actioner {
         else if ( window.equals(Actioner.SHOWORDMENUWINDOW) ){
             menuWindow.setVisible(false);
             remove(menuWindow);
+
+            //Components
+            viewWindow.getTextToSearchView().setVisible(false);
+            viewWindow.getBoxSaveWordToView().setVisible(false);
+            viewWindow.getButtonSearchToView().setVisible(false);
+
+            viewWindow.getjScrollPaneShowLetter().setVisible(false);
+            viewWindow.getjTableShowLetter().setVisible(false);
+            viewWindow.getjScrollPaneShowAllLetter().setVisible(false);
+            viewWindow.getjTableShowAllLetter().setVisible(false);
 
 
         }
@@ -209,6 +244,9 @@ public class MainWindow extends JFrame implements Actioner {
 
             searchEditWindow.setVisible(false);
             remove(searchEditWindow);
+
+            viewWindow.setVisible(false);
+            remove(searchEditWindow);
         }
 
         else if ( window.equals(Actioner.SEARCHEDITWORD) ){
@@ -219,13 +257,40 @@ public class MainWindow extends JFrame implements Actioner {
             addEditWindow.getButtonSendNewWord().setVisible(false);
         }
 
+        else if ( window.equals(Actioner.VIEWALETTER ) ){
+
+            //Components
+            viewWindow.getjScrollPaneShowAllLetter().setVisible(false);
+
+        }
+
+        else if ( window.equals(Actioner.VIEWSEARHALETTER) ){
+            //Components
+            viewWindow.getTextToSearchView().setVisible(false);
+            viewWindow.getBoxSaveWordToView().setVisible(false);
+            viewWindow.getButtonSearchToView().setVisible(false);
+        }
+
+        else if ( window.equals(Actioner.VIEWALLLETTER) ){
+
+            //Components
+            viewWindow.getTextToSearchView().setVisible(false);
+            viewWindow.getBoxSaveWordToView().setVisible(false);
+            viewWindow.getButtonSearchToView().setVisible(false);
+
+            viewWindow.getjScrollPaneShowLetter().setVisible(false);
+            viewWindow.getjTableShowLetter().setVisible(false);
+
+        }
+
 
     }
 
     @Override
     public String[] captureData(String window) {
 
-        if ( window.equals(Actioner.SENDNEWWORD) ){
+
+        if ( window.equals(Actioner.SENDNEWWORD ) ){
             String[] dataEntryNewWord = {
                     addEditWindow.getBoxSaveWord().getText(),
                     addEditWindow.getBoxSaveMeaning().getText(),
@@ -236,7 +301,7 @@ public class MainWindow extends JFrame implements Actioner {
             return dataEntryNewWord;
         }
 
-        else if ( window.equals(Actioner.SENDEDITWORD) ){
+        else if ( window.equals(Actioner.SENDEDITWORD ) ){
             String[] dataEntryEditWord = {
                     addEditWindow.getBoxSaveWord().getText(),
                     addEditWindow.getBoxSaveMeaning().getText(),
@@ -246,24 +311,84 @@ public class MainWindow extends JFrame implements Actioner {
             repaint();
             return dataEntryEditWord;
         }
+
+        else if ( window.equals(Actioner.SEARCHWORD ) ){
+            String[] dataEntrySearchWord = {
+                    searchEditWindow.getBoxSpaceWord().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntrySearchWord;
+        }
+
+        else if ( window.equals(Actioner.SEARCHEDITWORD ) ){
+            String[] dataEntrySearchEdit = {
+              searchEditWindow.getBoxSpaceWord().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntrySearchEdit;
+        }
+
+        else if ( window.equals(Actioner.SEARCHDELETEWORD ) ){
+            String[] dataEntrySearchDeleteWord = {
+              searchEditWindow.getBoxSpaceWord().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntrySearchDeleteWord;
+        }
+
+
         return new String[0];
 
 
     }
 
     @Override
-    public void showData(String window) {
+    public void showData(String[][] out, String window) {
+        cleanTable();
 
+        if ( window.equals(Actioner.VIEWSEARHALETTER ) ){
+            for (int i = 0; i < out.length; i++){
+                viewWindow.getTableModelShowLetter().addRow(out[i]);
+            }
+        }
+
+        if ( window.equals(Actioner.VIEWALLLETTER ) ){
+            for (int i = 0; i < out.length; i++){
+                viewWindow.getTableModelSowhAllLetter().addRow(out[i]);
+            }
+
+        }
     }
 
     @Override
-    public void showMessage(String window) {
-
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message);
     }
 
     private void cleanSpace() {
         addEditWindow.getBoxSaveMeaning().setText("");
         addEditWindow.getBoxSaveWord().setText("");
         addEditWindow.getBoxSaveTranslate().setText("");
+
+        searchEditWindow.getBoxSpaceWord().setText("");
+
+        viewWindow.getBoxSaveWordToView().setText("");
     }
+
+    private void cleanTable(){
+        for ( int i = 0; i < viewWindow.getTableModelShowLetter().getRowCount(); i++ ){
+            viewWindow.getTableModelShowLetter().removeRow(i);
+            i--;
+        }
+
+        for ( int i = 0; i < viewWindow.getTableModelSowhAllLetter().getRowCount(); i++ ){
+            viewWindow.getTableModelSowhAllLetter().removeRow(i);
+            i--;
+        }
+    }
+
+
 }

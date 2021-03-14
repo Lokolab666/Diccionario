@@ -2,6 +2,7 @@ package control;
 
 import view.Actioner;
 import view.AddEditWindow;
+import view.ViewWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ public class Controller implements ActionListener {
 
     //Class
     private AddEditWindow addEditWindow;
+    private ViewWindow viewWindow;
 
 
     public Controller( Actioner actioner ){
@@ -40,13 +42,8 @@ public class Controller implements ActionListener {
                 break;
 
             case Actioner.EDITWORDMENUWINDOW:
-
-                //TODO Hacer validacion de la busqueda de la palabra para editar y luego si se activa
-           //     if (  ){
-                    actioner.inactive( Actioner.EDITWORDMENUWINDOW );
-                    actioner.active( Actioner.EDITWORDMENUWINDOW );
-           //     }
-
+                actioner.inactive( Actioner.EDITWORDMENUWINDOW );
+                actioner.active( Actioner.EDITWORDMENUWINDOW );
                 break;
 
             case Actioner.DELETEWORDMENUWINDOW:
@@ -59,6 +56,7 @@ public class Controller implements ActionListener {
 
 
 
+            //WINDOW ADDEDIT
 
             case Actioner.SENDNEWWORD:
                 String[] captureDataSendWord = actioner.captureData(Actioner.SENDNEWWORD);
@@ -70,9 +68,11 @@ public class Controller implements ActionListener {
                 break;
 
             case Actioner.SENDEDITWORD:
-
+                String[] captureDataSendEdit = actioner.captureData(Actioner.SENDEDITWORD);
+               //TODO Capturar los datos y mostrar mensaje
                 actioner.inactive( Actioner.SENDEDITWORD);
                 actioner.active( Actioner.SENDEDITWORD );
+
 
                 break;
 
@@ -82,15 +82,59 @@ public class Controller implements ActionListener {
 
                 break;
 
+                //WINDOW SEARCHEDITWORD
+
+            case Actioner.SEARCHWORD:
+                String[] captureDataSearchWord = actioner.captureData(Actioner.SEARCHWORD);
+                actioner.inactive( Actioner.SEARCHWORD );
+                actioner.active( Actioner.SEARCHWORD );
+
+                break;
+
+
             case Actioner.SEARCHEDITWORD:
-                //captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
-                // if (la palabra existe){
+                //TODO captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
+                // if (la palabra existe, mostrar solo el arbol de esa palabra){
                 actioner.inactive( Actioner.SEARCHEDITWORD );
                 actioner.active( Actioner.SEARCHEDITWORD );
                 // }
                 break;
 
 
+
+            case Actioner.SEARCHDELETEWORD:
+                String[] captureDataSearchWWord = actioner.captureData(Actioner.SEARCHDELETEWORD);
+                actioner.inactive( Actioner.SEARCHDELETEWORD );
+                actioner.active( Actioner.SEARCHDELETEWORD );
+
+                // actioner.showMessage();
+
+                break;
+
+            //WINDOW VIEW
+
+            case Actioner.VIEWALETTER:
+                actioner.inactive( Actioner.VIEWALETTER );
+                actioner.active( Actioner.VIEWALETTER );
+
+                break;
+
+            case Actioner.VIEWSEARHALETTER:
+                //TODO captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
+                // if (la palabra existe){
+                actioner.inactive( Actioner.VIEWSEARHALETTER );
+                actioner.active( Actioner.VIEWSEARHALETTER );
+                //actioner.showData(class, Actioner.VIEWSEARCHALETTER);
+                // }
+
+                break;
+
+            case Actioner.VIEWALLLETTER:
+                actioner.inactive( Actioner.VIEWALLLETTER );
+                //TODO actioner.showData(clase, Actioner.VIEWALLLETTER);
+                actioner.active( Actioner.VIEWALLLETTER);
+
+                break;
 
         }
 
