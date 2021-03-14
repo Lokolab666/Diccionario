@@ -32,13 +32,13 @@ public class AddEditWindow extends JPanel {
 
     private void components(){
         //Texts
-        textToAddWord = new JLabel("Digite la palabra");
+        textToAddWord = new JLabel("Palabra");
         textToAddWord.setBounds(142,64,120,29);
 
-        textToAddMeaning = new JLabel("Digite el significado");
+        textToAddMeaning = new JLabel("Significado");
         textToAddMeaning.setBounds(410,64,180,29);
 
-        textToAddTranslate = new JLabel("Digite la traducción");
+        textToAddTranslate = new JLabel("Traducción");
         textToAddTranslate.setBounds(142,160,180,29);
 
         //Boxes

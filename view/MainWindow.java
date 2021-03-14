@@ -106,6 +106,8 @@ public class MainWindow extends JFrame implements Actioner {
 
             //Components
             addEditWindow.getButtonSendNewWord().setVisible(true);
+            addEditWindow.getBoxSaveWord().setEditable(true);
+            addEditWindow.getBoxSaveMeaning().setEditable(true);
         }
 
         else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
@@ -147,6 +149,8 @@ public class MainWindow extends JFrame implements Actioner {
 
             //Components
             addEditWindow.getButtonSendEditWord().setVisible(true);
+            addEditWindow.getBoxSaveWord().setEditable(true);
+            addEditWindow.getBoxSaveMeaning().setEditable(true);
         }
 
 
@@ -169,6 +173,12 @@ public class MainWindow extends JFrame implements Actioner {
 
         else if ( window.equals(Actioner.VIEWALLLETTER) ){
             viewWindow.getjScrollPaneShowAllLetter().setVisible(true);
+        }
+
+        else if ( window.equals(Actioner.SEARCHWORD ) ){
+            addEditWindow.setVisible(true);
+            add(addEditWindow);
+
         }
 
 
@@ -261,6 +271,7 @@ public class MainWindow extends JFrame implements Actioner {
 
             //Components
             viewWindow.getjScrollPaneShowAllLetter().setVisible(false);
+            viewWindow.getjScrollPaneShowLetter().setVisible(false);
 
         }
 
@@ -281,6 +292,18 @@ public class MainWindow extends JFrame implements Actioner {
             viewWindow.getjScrollPaneShowLetter().setVisible(false);
             viewWindow.getjTableShowLetter().setVisible(false);
 
+        }
+
+        else if ( window.equals(Actioner.SEARCHWORD ) ){
+            searchEditWindow.setVisible(false);
+            remove(searchEditWindow);
+
+            //Components
+            addEditWindow.getBoxSaveWord().setEditable(false);
+            addEditWindow.getBoxSaveMeaning().setEditable(false);
+            addEditWindow.getBoxSaveTranslate().setEditable(false);
+            addEditWindow.getButtonSendEditWord().setVisible(false);
+            addEditWindow.getButtonSendNewWord().setVisible(false);
         }
 
 
@@ -337,6 +360,15 @@ public class MainWindow extends JFrame implements Actioner {
             cleanSpace();
             repaint();
             return dataEntrySearchDeleteWord;
+        }
+
+        else if ( window.equals(Actioner.VIEWALETTER) ){
+            String[] dataEntryViewALetter = {
+              viewWindow.getBoxSaveWordToView().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntryViewALetter;
         }
 
 

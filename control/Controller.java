@@ -120,7 +120,7 @@ public class Controller implements ActionListener {
                 break;
 
             case Actioner.VIEWSEARHALETTER:
-                //TODO captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
+                captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
                 // if (la palabra existe){
                 actioner.inactive( Actioner.VIEWSEARHALETTER );
                 actioner.active( Actioner.VIEWSEARHALETTER );
