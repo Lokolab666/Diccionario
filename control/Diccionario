@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Diccionario {
+    public static void main(String[] args){
+        Binario arbol = new Binario();
+        Scanner sc = new Scanner (System.in);
+        ArrayList<String> lista;
+        
+        String aux;
+        String aux2;
+        String aux3;
+        int i;
+                    
+        while(true){
+            int opc = -1;
+            System.out.println("\n\nDICCIONARIO\n");
+            System.out.println("Opciones");
+            System.out.println("1] Agregar palabra");
+            System.out.println("2] Consultar palabra");
+            System.out.println("3] Listar palabras por una letra");
+            System.out.println("4] Listar todas las palabras");
+            System.out.println("5] Eliminar una palabra del diccionario");
+            System.out.print("Ingrese una opcion: ");
+            
+            while(opc < 0 || opc > 5){
+                opc = Integer.parseInt(sc.nextLine());
+                if(opc < 0 || opc > 5){
+                   System.out.print("Opcion invalida, ingrese otra: "); 
+                }
+            }
+            
+            switch(opc){
+                case 1:
+                    System.out.print("Ingrese la palabra: ");
+                    aux = sc.nextLine();
+                    System.out.print("Ingrese la palabra en ingles: ");
+                    aux2 = sc.nextLine();
+                    System.out.print("Ingrese la descripcion: ");
+                    aux3 = sc.nextLine();
+                    arbol.insertarDato(aux, aux2, aux3);
+                    break;
+                case 2:
+                    System.out.print("Ingrese la palabra a consultar: ");
+                    aux = sc.nextLine();
+                    arbol.buscarPalabra(aux);
+                    break;
+                case 3:
+                    char letra;
+                    System.out.print("Ingrese la letra a consultar: ");
+                    letra = sc.nextLine().charAt(0);
+                    lista = arbol.recorrerLetra(letra);
+                    System.out.println("\nListado:");
+                    for(i = 0; i<lista.size(); i++){
+                        System.out.println(lista.get(i));
+                    }
+                    break;
+                case 4:
+                    lista = arbol.recorrer();
+                    System.out.println("\nListado:");
+                    for(i = 0; i<lista.size(); i++){
+                        System.out.println(lista.get(i));
+                    }
+                    break;
+                case 5:
+                    System.out.print("Ingrese la palabra a elimar: ");
+                    aux = sc.nextLine();
+                    arbol.busqueda(aux);
+                    if(arbol.NodoBusqueda == arbol.returnRaiz()){
+                        arbol.borrarRaiz();
+                    } else {
+                        arbol.busquedaPadre(aux);
+                        arbol.borrarDato(arbol.NodoBusquedaPadre, arbol.NodoBusqueda);
+                    }
+                    break;                    
+            }
+            if(opc == 0){
+                break;
+            }
+        }
+    }
+}
+
+/*
+
+        int i;
+        
+        
+        
+        arbol.insertarDato("casa", "house", "lugar donde viven personas");
+        arbol.insertarDato("arbol", "tree", "un arbol");
+        arbol.insertarDato("palo", "stick", "palo");
+        
+        //arbol.buscarPalabra("arbol");
+        
+         = arbol.recorrer();
+        
+        for(i = 0; i<lista.size(); i++){
+            System.out.println(lista.get(i));
+        }*/
