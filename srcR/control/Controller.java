@@ -73,10 +73,10 @@ public class Controller implements ActionListener {
 
             case Actioner.SENDEDITWORD:
                 String[] captureDataSendEdit = actioner.captureData(Actioner.SENDEDITWORD);
-               //TODO Capturar los datos y mostrar mensaje
+                actioner.showMessage(dictionaryManagement.editWord(captureDataSendEdit));
+
                 actioner.inactive( Actioner.SENDEDITWORD);
                 actioner.active( Actioner.SENDEDITWORD );
-
 
                 break;
 
@@ -108,12 +108,18 @@ public class Controller implements ActionListener {
 
 
             case Actioner.SEARCHEDITWORD:
-                captureDataSendWord = actioner.captureData(Actioner.SEARCHEDITWORD);
-     //            if (dictionaryManagement.existWord(captureDataSendWord)){
-                actioner.inactive( Actioner.SEARCHEDITWORD );
-                actioner.active( Actioner.SEARCHEDITWORD );
-//                actioner.showData();
-   //              }
+                String[] captureDataSendEditWord = actioner.captureData(Actioner.SEARCHEDITWORD);
+                 if (dictionaryManagement.searchEditWord(captureDataSendEditWord) != null){
+                    String[][] showEditData = new String[1][3];
+                    showEditData[0][0] = dictionaryManagement.searchEditWord(captureDataSendEditWord)[0];
+                    showEditData[0][1] = dictionaryManagement.searchEditWord(captureDataSendEditWord)[1];
+                    showEditData[0][2] = dictionaryManagement.searchEditWord(captureDataSendEditWord)[2];
+                    actioner.showData(showEditData, Actioner.SEARCHEDITWORD);
+
+                    dictionaryManagement.deleteWordInSearch(captureDataSendEditWord);
+                    actioner.inactive( Actioner.SEARCHEDITWORD );
+                    actioner.active( Actioner.SEARCHEDITWORD );
+                 }
                 break;
 
 
@@ -141,11 +147,11 @@ public class Controller implements ActionListener {
 
             case Actioner.VIEWSEARHALETTER:
                 String[] dataSearchWord = actioner.captureData(Actioner.VIEWSEARHALETTER);
-                // if (la palabra existe){
+                if (dictionaryManagement.showALetter(dataSearchWord) != null){
                 actioner.inactive( Actioner.VIEWSEARHALETTER );
                 actioner.active( Actioner.VIEWSEARHALETTER );
-                //actioner.showData(class, Actioner.VIEWSEARCHALETTER);
-                // }
+                actioner.showData(dictionaryManagement.showALetter(dataSearchWord), Actioner.VIEWSEARHALETTER);
+                 }
 
                 break;
 

@@ -379,6 +379,14 @@ public class MainWindow extends JFrame implements Actioner {
             return dataEntryViewALetter;
         }
 
+        else if ( window.equals(Actioner.VIEWSEARHALETTER ) ){
+            String[] dataEntrySearch = {
+                    viewWindow.getBoxSaveWordToView().getText()
+            };
+            cleanSpace();
+            repaint();
+            return dataEntrySearch;
+        }
 
         return null;
 
@@ -403,6 +411,12 @@ public class MainWindow extends JFrame implements Actioner {
         }
 
         if ( window.equals(Actioner.SEARCHWORD) ){
+            addEditWindow.getBoxSaveWord().setText(out[0][0]);
+            addEditWindow.getBoxSaveMeaning().setText(out[0][1]);
+            addEditWindow.getBoxSaveTranslate().setText(out[0][2]);
+        }
+
+        if ( window.equals(Actioner.SEARCHEDITWORD) ){
             addEditWindow.getBoxSaveWord().setText(out[0][0]);
             addEditWindow.getBoxSaveMeaning().setText(out[0][1]);
             addEditWindow.getBoxSaveTranslate().setText(out[0][2]);
