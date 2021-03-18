@@ -98,6 +98,7 @@ public class MainWindow extends JFrame implements Actioner {
 
     @Override
     public void active(String window) {
+        cleanSpace();
 
         if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
             addEditWindow.setVisible(true);
@@ -107,6 +108,7 @@ public class MainWindow extends JFrame implements Actioner {
             addEditWindow.getButtonSendNewWord().setVisible(true);
             addEditWindow.getBoxSaveWord().setEditable(true);
             addEditWindow.getBoxSaveMeaning().setEditable(true);
+            addEditWindow.getBoxSaveTranslate().setEditable(true);
         }
 
         else if ( window.equals(Actioner.SEARCHWORDMENUWINDOW) ){
@@ -150,6 +152,7 @@ public class MainWindow extends JFrame implements Actioner {
             addEditWindow.getButtonSendEditWord().setVisible(true);
             addEditWindow.getBoxSaveWord().setEditable(true);
             addEditWindow.getBoxSaveMeaning().setEditable(true);
+            addEditWindow.getBoxSaveTranslate().setEditable(true);
         }
 
 
@@ -183,7 +186,6 @@ public class MainWindow extends JFrame implements Actioner {
             add(addEditWindow);
 
         }
-
 
     }
 
@@ -265,6 +267,9 @@ public class MainWindow extends JFrame implements Actioner {
 
             //Components
             addEditWindow.getButtonSendNewWord().setVisible(false);
+            addEditWindow.getBoxSaveWord().setEditable(true);
+            addEditWindow.getBoxSaveMeaning().setEditable(true);
+            addEditWindow.getBoxSaveTranslate().setEditable(true);
         }
 
         else if ( window.equals(Actioner.VIEWALETTER ) ){

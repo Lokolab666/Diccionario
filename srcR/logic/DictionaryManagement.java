@@ -1,4 +1,12 @@
 package logic;
+/**
+ * Clase para realizar la gestión de los árboles binarios creados por letra en las que se almacenan los datos de la
+ * palabra, la definición y su traducción
+ *
+ * @version 0.1.2.8
+ * @Author Cristian Fandiño y Jenifer Gómez
+ */
+
 
 import java.util.ArrayList;
 

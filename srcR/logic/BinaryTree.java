@@ -1,9 +1,7 @@
 package logic;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Stack;
 
 
 public class BinaryTree<T> {
@@ -52,20 +50,6 @@ public class BinaryTree<T> {
 		return null;
 	}
 
-	public ArrayList<T> listPresort(){
-		out=new ArrayList<>();
-		presort(root);
-		return out;
-	}
-
-	private void presort(Node<T> node) {
-		if(node!=null){
-			out.add(node.getInfo());
-			presort(node.getLeft());
-			presort(node.getRight());
-		}
-	}
-
 	public ArrayList<T> listInOrder(){
 		out=new ArrayList<>();
 		inOrder(root);
@@ -80,23 +64,12 @@ public class BinaryTree<T> {
 		}
 	}
 
-
-	public ArrayList<T> listPosOrder() {
-		out=new ArrayList<>();
-		posOrder(root);
-		return out;
-	}
-
 	private void posOrder(Node<T> node) {
 		if(node!=null){
 			posOrder(node.getLeft());
 			posOrder(node.getRight());
 			out.add(node.getInfo());
 		}
-	}
-
-	public boolean isLeaf(Node<T> node) {
-		return gradeNode(node) == 0 ? true : false;
 	}
 
 	public byte gradeNode(Node<T> node){
@@ -123,35 +96,6 @@ public class BinaryTree<T> {
 		}
 	}
 
-	public int levelNode(Node<T> node){
-		Node<T> level=root;
-		int cont=0;
-		if(node==root){
-			return 0;
-		}else{
-			while(node!=root){
-				level=comparator.compare(node.getInfo(), level.getInfo())<0?level.getLeft():level.getRight();
-				cont++;
-				if(level==node){
-					return cont;
-				}
-			}
-		}
-		return cont;
-	}
-
-	public int heightNode(Node<T> node){
-		aux=0;
-		height(node, 0);
-		return aux;
-	}
-
-	public int heightTree() {
-		aux=0;
-		height(root, 0);
-		return aux;
-	}
-
 	private void height(Node<T> node, int level){
 		if(node!=null){
 			height(node.getLeft(), level+1);
@@ -170,45 +114,6 @@ public class BinaryTree<T> {
 		}
 		return 0;
 	}
-
-	public ArrayDeque<T> listAmplitudedDown(){
-		ArrayDeque<T> tailOut = new ArrayDeque<>();
-		ArrayDeque<Node> tailAux = new ArrayDeque<>();
-		tailAux.add(root);
-		while (!tailAux.isEmpty()) {
-			Node aux = tailAux.poll();
-			if (aux.getLeft() != null) {
-				tailAux.add(aux.getLeft());
-			}
-			if (aux.getRight()!=null) {
-				tailAux.add(aux.getRight());
-			}
-			tailOut.add((T) aux.getInfo());
-		}
-		return tailOut;
-	}
-
-	public ArrayList<T> listAmplitudeTop(){
-		ArrayDeque<Node> tailAux = new ArrayDeque<>();
-		Stack<T> stack = new Stack<>();
-		tailAux.add(root);
-		while (!tailAux.isEmpty()) {
-			Node aux= tailAux.poll();
-			if (aux.getLeft()!=null) {
-				tailAux.add(aux.getLeft());
-			}
-			if (aux.getRight()!=null) {
-				tailAux.add(aux.getRight());
-			}
-			stack.push((T) aux.getInfo());	
-		}
-		ArrayList<T> out = new ArrayList<>();
-		while (!stack.empty()) {
-			out.add(stack.pop());
-		}
-		return out;
-	}
-
 
 	public T deleteNode(Node<T> node) {
 		switch (gradeNode(node)) {
@@ -268,9 +173,5 @@ public class BinaryTree<T> {
 			father.setRight(sustitute);
 		}
 		return node.getInfo();
-	}
-
-	public ArrayList<T> getArray() {
-		return (ArrayList<T>) out.clone();
 	}
 }
