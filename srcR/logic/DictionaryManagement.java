@@ -120,10 +120,7 @@ public class DictionaryManagement {
     }
 
     public String[][] showALetter(String[] dataEntryShowALetter){
-        int aux = 0;
-        int auxTwo = 0;
         int x = 0;
-
         if (convertCapitalLetter(dataEntryShowALetter[0]) == "No fue exitoso el procedimiento"){
             return null;
         }else {
@@ -136,8 +133,6 @@ public class DictionaryManagement {
             }else {
                 ArrayList<WordDictionary> showInfoLetter = new ArrayList<>();
                 showInfoLetter = wordsDictionary.get(codeAscii(dataEntryShowALetter[0])).listInOrder();
-
-
                 String[][] out = new String[showInfoLetter.size()][3];
                 for (int i = 0; i < showInfoLetter.size(); i++){
                         out[x][0] = showInfoLetter.get(i).getWordDictionary();
@@ -166,7 +161,6 @@ public class DictionaryManagement {
                 searchInfo[0] = wordsDictionary.get(codeAscii(dataEntrySearchEditWord[0])).findNode(new WordDictionary(dataEntrySearchEditWord[0], null, null)).getInfo().getWordDictionary();
                 searchInfo[1] = wordsDictionary.get(codeAscii(dataEntrySearchEditWord[0])).findNode(new WordDictionary(dataEntrySearchEditWord[0], null, null)).getInfo().getMeancyWord();
                 searchInfo[2] = wordsDictionary.get(codeAscii(dataEntrySearchEditWord[0])).findNode(new WordDictionary(dataEntrySearchEditWord[0], null, null)).getInfo().getWordTranslate();
-             //   wordsDictionary.get(codeAscii(dataEntrySearchEditWord[0])).deleteNode(wordsDictionary.get(codeAscii(dataEntrySearchEditWord[0])).findNode(new WordDictionary(dataEntrySearchEditWord[0],null,null)));
 
                 return searchInfo;
             }
@@ -193,22 +187,14 @@ public class DictionaryManagement {
 
     public void deleteWordInSearch(String[] captureDataSendEditWord) {
         String[] searchInfo = new String[3];
-        if (convertCapitalLetter(captureDataSendEditWord[0]) == "No fue exitoso el procedimiento"){
-
-        }else {
+        if (convertCapitalLetter(captureDataSendEditWord[0]) != "No fue exitoso el procedimiento"){
             captureDataSendEditWord[0] = convertCapitalLetter(captureDataSendEditWord[0]);
         }
 
         if (!captureDataSendEditWord[0].equals("")){
-            if (wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).findNode(new WordDictionary(captureDataSendEditWord[0],null, null)) == null){
-
-            }else {
-               wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).deleteNode(wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).findNode(new WordDictionary(captureDataSendEditWord[0],null,null)));
-
-
+            if (wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).findNode(new WordDictionary(captureDataSendEditWord[0],null, null)) != null){
+                wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).deleteNode(wordsDictionary.get(codeAscii(captureDataSendEditWord[0])).findNode(new WordDictionary(captureDataSendEditWord[0],null,null)));
             }
         }
-
-
     }
 }

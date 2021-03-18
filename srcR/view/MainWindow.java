@@ -100,7 +100,6 @@ public class MainWindow extends JFrame implements Actioner {
     public void active(String window) {
 
         if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
-            //TODO Agregar la ventana para agregar y editar palabra (es la misma mompi)
             addEditWindow.setVisible(true);
             add(addEditWindow);
 
@@ -244,9 +243,6 @@ public class MainWindow extends JFrame implements Actioner {
             searchEditWindow.getButtonSearchWord().setVisible(false);
         }
 
-
-
-
         else if ( window.equals(Actioner.SENDNEWWORD) || window.equals(Actioner.SENDEDITWORD) ){
             addEditWindow.setVisible(false);
             remove(addEditWindow);
@@ -267,7 +263,7 @@ public class MainWindow extends JFrame implements Actioner {
             searchEditWindow.setVisible(false);
             remove(searchEditWindow);
 
-            //Components TODO
+            //Components
             addEditWindow.getButtonSendNewWord().setVisible(false);
         }
 
@@ -318,7 +314,6 @@ public class MainWindow extends JFrame implements Actioner {
 
     @Override
     public String[] captureData(String window) {
-
 
         if ( window.equals(Actioner.SENDNEWWORD ) ){
             String[] dataEntryNewWord = {
@@ -387,10 +382,7 @@ public class MainWindow extends JFrame implements Actioner {
             repaint();
             return dataEntrySearch;
         }
-
         return null;
-
-
     }
 
     @Override
