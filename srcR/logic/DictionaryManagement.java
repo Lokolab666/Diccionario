@@ -86,53 +86,60 @@ public class DictionaryManagement {
     }
 
     public String[][] showAllLetters() {
+        ArrayList<ArrayList<WordDictionary>> showInfoLetter = new ArrayList<ArrayList<WordDictionary>>();
+        int aux = 0;
+        int auxTwo = 0;
+        int x = 0;
+        for (int i = 0; i < wordsDictionary.size()-1 ; i++){
 
-
-    }
-/*
-    public boolean existWord(String[] dataEntrySearch){
-        WordDictionary wordDictionary = new WordDictionary(dataEntrySearch[0], null, null);
-
-        if (dataEntrySearch[0].equals(){
-            return true;
-        }else {
-            return false;
+            aux = wordsDictionary.get(i).weightTree();
+            auxTwo = aux + auxTwo;
         }
+
+
+
+
+
+        ArrayList<ArrayList<WordDictionary>> getLetter = new ArrayList<ArrayList<WordDictionary>>();
+        for (int i = 0; i < wordsDictionary.size()-1; i++){
+            if (i == 14){
+                if (!wordsDictionary.isEmpty()){
+                    getLetter.add(wordsDictionary.get(26).listInOrder());
+                }
+            }
+            if (!wordsDictionary.isEmpty()){
+                getLetter.add(wordsDictionary.get(i).listInOrder());
+            }
+        }
+
+        String[][] out = new String[auxTwo][3];
+        for (int i = 0; i < getLetter.size(); i++){
+            for (int j = 0; j < getLetter.get(i).size(); j++){
+                out[x][0] = getLetter.get(i).get(j).getWordDictionary();
+                out[x][1] = getLetter.get(i).get(j).getMeancyWord();
+                out[x][2] = getLetter.get(i).get(j).getWordTranslate();
+                x++;
+
+            }
+        }
+        return out;
     }
 
+ /*   private int weightDictionary(ArrayList<ArrayList<WordDictionary>> dictionaryWords){
+        int count=0;
+        for (int i = 0; i < dictionaryWords.size(); i++) {
+            for (int j = 0; j < dictionaryWords.get(i).size(); j++) {
+                count++;
+            }
+        }
+        return count;
+    }
 
-
-
-
-
-
-
-
-
-
-
- */
+    /*public String[][] showALetter(){
+        ArrayList<ArrayList<WordDictionary>> showInfoLetter = new ArrayList<ArrayList<WordDictionary>>();
+    }*/
 
 
 
 
 }
-
-/*
-
-        int i;
-
-
-
-        arbol.insertarDato("casa", "house", "lugar donde viven personas");
-        arbol.insertarDato("arbol", "tree", "un arbol");
-        arbol.insertarDato("palo", "stick", "palo");
-
-        //arbol.buscarPalabra("arbol");
-
-         = arbol.recorrer();
-
-        for(i = 0; i<lista.size(); i++){
-
-        }*/
-

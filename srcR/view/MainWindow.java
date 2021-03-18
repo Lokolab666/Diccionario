@@ -169,10 +169,14 @@ public class MainWindow extends JFrame implements Actioner {
 
         else if ( window.equals(Actioner.VIEWSEARHALETTER) ){
             viewWindow.getjScrollPaneShowLetter().setVisible(true);
+            viewWindow.getjTableShowLetter().setVisible(true);
         }
 
         else if ( window.equals(Actioner.VIEWALLLETTER) ){
             viewWindow.getjScrollPaneShowAllLetter().setVisible(true);
+            viewWindow.getjTableShowAllLetter().setVisible(true);
+
+            add(viewWindow);
         }
 
         else if ( window.equals(Actioner.SEARCHWORD ) ){
@@ -280,6 +284,9 @@ public class MainWindow extends JFrame implements Actioner {
             viewWindow.getTextToSearchView().setVisible(false);
             viewWindow.getBoxSaveWordToView().setVisible(false);
             viewWindow.getButtonSearchToView().setVisible(false);
+
+            viewWindow.getjScrollPaneShowAllLetter().setVisible(false);
+            viewWindow.getjTableShowAllLetter().setVisible(false);
         }
 
         else if ( window.equals(Actioner.VIEWALLLETTER) ){

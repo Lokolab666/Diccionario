@@ -75,7 +75,7 @@ public class ViewWindow extends JPanel {
         buttonSearchToView.setBounds(654,230,207,57);
 
         //TABLE
-        String[] dataTableLetter = {"Letter", "Word"};
+        String[] dataTableLetter = {"Letter", "Word", "Translate"};
 
         //Table Columns
         tableModelShowLetter = new DefaultTableModel();
@@ -128,6 +128,9 @@ public class ViewWindow extends JPanel {
     }
 
     private void addComponent() {
+        add(jScrollPaneShowLetter);
+        add(jScrollPaneShowAllLetter);
+
         add(textToInfo);
         add(textToSearchView);
 
@@ -137,10 +140,6 @@ public class ViewWindow extends JPanel {
         add(buttonShowAllLetters);
         add(buttonBackToMenu);
         add(buttonSearchToView);
-
-        add(jScrollPaneShowLetter);
-        add(jScrollPaneShowAllLetter);
-
 
     }
 

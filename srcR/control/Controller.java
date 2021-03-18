@@ -153,7 +153,6 @@ public class Controller implements ActionListener {
                 actioner.inactive( Actioner.VIEWALLLETTER );
                 actioner.showData(dictionaryManagement.showAllLetters(), Actioner.VIEWALLLETTER);
                 actioner.active( Actioner.VIEWALLLETTER);
-
                 break;
 
         }
