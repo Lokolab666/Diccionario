@@ -319,6 +319,7 @@ public class MainWindow extends JFrame implements Actioner {
                     addEditWindow.getBoxSaveMeaning().getText(),
                     addEditWindow.getBoxSaveTranslate().getText()
             };
+
             cleanSpace();
             repaint();
             return dataEntryNewWord;
@@ -372,7 +373,7 @@ public class MainWindow extends JFrame implements Actioner {
         }
 
 
-        return new String[0];
+        return null;
 
 
     }
@@ -393,6 +394,13 @@ public class MainWindow extends JFrame implements Actioner {
             }
 
         }
+
+        if ( window.equals(Actioner.SEARCHWORD) ){
+            addEditWindow.getBoxSaveWord().setText(out[0][0]);
+            addEditWindow.getBoxSaveMeaning().setText(out[0][1]);
+            addEditWindow.getBoxSaveTranslate().setText(out[0][2]);
+        }
+
     }
 
     @Override

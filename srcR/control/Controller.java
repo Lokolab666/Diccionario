@@ -1,5 +1,6 @@
 package control;
 
+import logic.DictionaryManagement;
 import view.Actioner;
 import view.AddEditWindow;
 import view.ViewWindow;
@@ -15,9 +16,13 @@ public class Controller implements ActionListener {
     private AddEditWindow addEditWindow;
     private ViewWindow viewWindow;
 
+    private DictionaryManagement dictionaryManagement;
+
 
     public Controller( Actioner actioner ){
         this.actioner = actioner;
+
+        dictionaryManagement = new DictionaryManagement();
 
 
     }
@@ -60,8 +65,7 @@ public class Controller implements ActionListener {
 
             case Actioner.SENDNEWWORD:
                 String[] captureDataSendWord = actioner.captureData(Actioner.SENDNEWWORD);
-                //TODO Dentro del parentesis, va el mensaje que retorna al agregar una nueva letra
-                // actioner.showMessage();
+                actioner.showMessage(dictionaryManagement.createWord(captureDataSendWord));
 
                 actioner.inactive( Actioner.SENDNEWWORD );
                 actioner.active( Actioner.SENDNEWWORD );
@@ -86,28 +90,44 @@ public class Controller implements ActionListener {
 
             case Actioner.SEARCHWORD:
                 String[] captureDataSearchWord = actioner.captureData(Actioner.SEARCHWORD);
-                actioner.inactive( Actioner.SEARCHWORD );
-                actioner.active( Actioner.SEARCHWORD );
+                if ( dictionaryManagement.searchWord(captureDataSearchWord) != null ){
+                    String[][] showSearchData = new String[1][3];
+                    showSearchData[0][0] = dictionaryManagement.searchWord(captureDataSearchWord)[0];
+                    showSearchData[0][1] = dictionaryManagement.searchWord(captureDataSearchWord)[1];
+                    showSearchData[0][2] = dictionaryManagement.searchWord(captureDataSearchWord)[2];
+                    actioner.showData(showSearchData, Actioner.SEARCHWORD);
+                    actioner.inactive( Actioner.SEARCHWORD );
+                    actioner.active( Actioner.SEARCHWORD );
+                }else {
+                    actioner.showMessage("Palabra no encontrada");
+                }
+
+
 
                 break;
 
 
             case Actioner.SEARCHEDITWORD:
-                //TODO captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
-                // if (la palabra existe, mostrar solo el arbol de esa palabra){
+                captureDataSendWord = actioner.captureData(Actioner.SEARCHEDITWORD);
+     //            if (dictionaryManagement.existWord(captureDataSendWord)){
                 actioner.inactive( Actioner.SEARCHEDITWORD );
                 actioner.active( Actioner.SEARCHEDITWORD );
-                // }
+//                actioner.showData();
+   //              }
                 break;
 
 
 
             case Actioner.SEARCHDELETEWORD:
-                String[] captureDataSearchWWord = actioner.captureData(Actioner.SEARCHDELETEWORD);
+                String[] captureDataDeleteWWord = actioner.captureData(Actioner.SEARCHDELETEWORD);
+                if ( dictionaryManagement.deleteWord(captureDataDeleteWWord) == "Palabra eliminada" ){
+                    actioner.showMessage("Palabra eliminada");
+                }else {
+                    actioner.showMessage("Palabra NO eliminada");
+                }
+
                 actioner.inactive( Actioner.SEARCHDELETEWORD );
                 actioner.active( Actioner.SEARCHDELETEWORD );
-
-                // actioner.showMessage();
 
                 break;
 
@@ -120,7 +140,7 @@ public class Controller implements ActionListener {
                 break;
 
             case Actioner.VIEWSEARHALETTER:
-                captureDataSendWord = actioner.captureData(Actioner.SENDEDITWORD);
+                String[] dataSearchWord = actioner.captureData(Actioner.VIEWSEARHALETTER);
                 // if (la palabra existe){
                 actioner.inactive( Actioner.VIEWSEARHALETTER );
                 actioner.active( Actioner.VIEWSEARHALETTER );
@@ -131,7 +151,7 @@ public class Controller implements ActionListener {
 
             case Actioner.VIEWALLLETTER:
                 actioner.inactive( Actioner.VIEWALLLETTER );
-                //TODO actioner.showData(clase, Actioner.VIEWALLLETTER);
+                actioner.showData(dictionaryManagement.showAllLetters(), Actioner.VIEWALLLETTER);
                 actioner.active( Actioner.VIEWALLLETTER);
 
                 break;
