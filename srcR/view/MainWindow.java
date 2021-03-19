@@ -98,9 +98,10 @@ public class MainWindow extends JFrame implements Actioner {
 
     @Override
     public void active(String window) {
-        cleanSpace();
+
 
         if ( window.equals(Actioner.ADDWORDMENUWINDOW) ){
+            cleanSpace();
             addEditWindow.setVisible(true);
             add(addEditWindow);
 
