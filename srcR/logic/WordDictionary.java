@@ -30,7 +30,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que obtiene la palabra
+     * Metodo que obtiene la palabra
      * @return String Palabra.
      */
     public String getWordDictionary() {
@@ -38,7 +38,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que edita la palabra.
+     * Metodo que edita la palabra.
      * @param wordDictionary Contiene la palabra ya editada.
      */
     public void setWordDictionary(String wordDictionary) {
@@ -46,7 +46,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que obtiene la traducción de la palabra
+     * Metodo que obtiene la traducción de la palabra
      * @return String con la traducción que contenga.
      */
     public String getWordTranslate() {
@@ -54,7 +54,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que edita la traducción de la palabra.
+     * Metodo que edita la traducción de la palabra.
      * @param wordTranslate Contiene la palabra traducida ya editada.
      */
     public void setWordTranslate(String wordTranslate) {
@@ -62,7 +62,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que obtiene la definición de la palabra.
+     * Metodo que obtiene la definición de la palabra.
      * @return String con la definición de la palabra.
      */
     public String getMeancyWord() {
@@ -70,7 +70,7 @@ public class WordDictionary {
     }
 
     /**
-     * Método que edita la definición de la palabra
+     * Metodo que edita la definición de la palabra
      * @param meancyWord la definición de la palabra ya editada,
      */
     public void setMeancyWord(String meancyWord) {
@@ -78,12 +78,12 @@ public class WordDictionary {
     }
 
     /**
-     * Método Comparator para realizar la comparación de palabras en el arbol de acuerdo con la primera letra de la palabra. Compara las dos palabras que llegan.
+     * Metodo Comparator para realizar la comparación de palabras en el arbol de acuerdo con la primera letra de la palabra. Compara las dos palabras que llegan.
      */
     public static Comparator<WordDictionary> compareLetter = (l1, l2 ) -> l1.getWordDictionary().compareTo( l2.getWordDictionary() );
 
     /**
-     * Método para mostrar la información de una palabra en pantalla
+     * Metodo para mostrar la información de una palabra en pantalla
      * @return String con la información y atributos de la palabra.
      */
     @Override

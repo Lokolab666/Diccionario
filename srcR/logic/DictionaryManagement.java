@@ -32,7 +32,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método para convertir la primera letra que se ingresa en mayuscula
+     * Metodo para convertir la primera letra que se ingresa en mayuscula
      * @param word Palabra a la cual se le va a convertir la primera letra en mayuscula.
      * @return String si se hace la conversión con toUpperCase
      */
@@ -45,11 +45,11 @@ public class DictionaryManagement {
     }
 
     /**
-     *Método para crear una nueva palabra. Recibe un vector String en el que contiene los datos obtenidos en la interfaz o en los JTextFields
+     *Metodo para crear una nueva palabra. Recibe un vector String en el que contiene los datos obtenidos en la interfaz o en los JTextFields
      * Para el primer dato de dataEntryCreateWord, se almacena el dato palabra
      * Para el segundo dato de dataEntryCreateWord, se almacena el dato del significado
      * Para el tercer dato de dataEntryCreateWord, se almacena el dato de la traducción
-     * También, se ingresa al método codeAscii que se le envia el primer dataEntryCreateWord para obtemer de la primera letra en código ASCII y agregar la palabra en su correspondiente árbol mediante esa clave
+     * También, se ingresa al Metodo codeAscii que se le envia el primer dataEntryCreateWord para obtemer de la primera letra en código ASCII y agregar la palabra en su correspondiente árbol mediante esa clave
      * @param dataEntryCreateWord Array unidimensional que contiene los datos obtenidos en la interfaz para crear una nueva palabra.
      * @return String donde indica el resultado de la operación
      */
@@ -71,7 +71,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método que obtiene la primera letra y convierte la letra en su respectivo código ASCII. Se da desde el 65 porque alli comienza el codigo de las letras mayusculas.
+     * Metodo que obtiene la primera letra y convierte la letra en su respectivo código ASCII. Se da desde el 65 porque alli comienza el codigo de las letras mayusculas.
      * Se observa que tiene dentro del condicional, un comparador a 165, esto porque ese número es la letra eñe mayuscuyla.
      * @param wordFinally Entero que contiene la conversión a código ASCII de la primera letra.
      * @return int 26 si no se cumple la condición de ser 165, y se le asigna su respectivo número (del 1 al 26). Cuando si cumple, entonces retorna 26 porque la eñe se encuentra en esa posición del ArrayList.
@@ -86,7 +86,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * En este método, elimina la palabra, Nuevamente ingresa a la conversión de la primera letra en mayuscula. Luego de ello, obtiene el código ASCII para ubicar el arbol y por último eliminar este nodo, si se encuentra registrado
+     * En este Metodo, elimina la palabra, Nuevamente ingresa a la conversión de la primera letra en mayuscula. Luego de ello, obtiene el código ASCII para ubicar el arbol y por último eliminar este nodo, si se encuentra registrado
      * @param dataEntryDeleteWord  Array unidimensional que contiene los datos obtenidos en la interfaz para eliminar la palabra contenida.
      * @return String dando a indicar si se logro eliminar la palabra o el nodo.
      */
@@ -106,7 +106,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método que busca la palabra. Realiza las mismas condiciones (convertir primera letra en mayuscula y convertirla en su código ASCII).
+     * Metodo que busca la palabra. Realiza las mismas condiciones (convertir primera letra en mayuscula y convertirla en su código ASCII).
      * Verifica que la palabra o el nodo exissta y sea diferente de null, para poder obtener los datos o atributos de esa palabra.
      * @param dataEntrySearchWord  Array unidimensional que contiene los datos obtenidos en la interfaz para buscar la palabra.
      * @return String[] con los atributos de la palabra para mostrarlos en la interfaz o null cuando existe un error.
@@ -134,8 +134,8 @@ public class DictionaryManagement {
     }
 
     /**
-     *Método que envia todas las palabras del diccionario.
-     * En este método, primero se obtiene el tamaño de todos los árboles. Despues, crea un ArrayList para poder obtener todas las letras en un solo parametro.
+     *Metodo que envia todas las palabras del diccionario.
+     * En este Metodo, primero se obtiene el tamaño de todos los árboles. Despues, crea un ArrayList para poder obtener todas las letras en un solo parametro.
      * Continuando, se crea una variabla de tipo String[][] o un arreglo bidimensional en el que se almacena la palabra con sus respectivos atributos con ayuda de dos ciclos (uno anidado del otro
      * @return String[][] o arreglo bidimensional con los datos
      */
@@ -173,7 +173,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método que muestra las palabras de una sola letra. Nuevamente se convierte en la primera letra en mayuscula, obtiene el código ASCII de esa letra para obtener su arbol.
+     * Metodo que muestra las palabras de una sola letra. Nuevamente se convierte en la primera letra en mayuscula, obtiene el código ASCII de esa letra para obtener su arbol.
      * Se crea un ArrayList o arreglo bidimensional en el que se almacenan los datos con esa primera letra, guardandolos en orden.
      * @param dataEntryShowALetter  Array unidimensional que contiene los datos obtenidos en la interfaz, en este caso contiene la letra a la cual se quiere listar las palabras.
      * @return String[][] arreglo bidimensial, con los atributos de cada palabra que comience con esa palabra.
@@ -206,7 +206,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método para buscar una palabra a editar. Recibe la palabra a buscar, se crea un arreglo unidimensional para almacenar los datos de los atributos de la palabra.
+     * Metodo para buscar una palabra a editar. Recibe la palabra a buscar, se crea un arreglo unidimensional para almacenar los datos de los atributos de la palabra.
      * Nuevamente, se convierte la primera letra en mayuscula y obtiene el código ASCII.
      * Busca la palabra con ayuda de findNode y valida que tenga la misma palabra.
      * Se almacenan esos datos para mostrarlos en la interfaz y poderlos editar.
@@ -236,9 +236,9 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método para enviar la palabra editada al árbol binario. Primero, convierte la primera letra en mayuscula para identificarlo más facilmente en el código ASCII
+     * Metodo para enviar la palabra editada al árbol binario. Primero, convierte la primera letra en mayuscula para identificarlo más facilmente en el código ASCII
      * Verifica que no entren datos vacios.
-     * Este método es similar al createWord, agrega el arreglo unidimensal con los atributos correspondientes.
+     * Este Metodo es similar al createWord, agrega el arreglo unidimensal con los atributos correspondientes.
      * @param dataEntryEditWord  Array unidimensional que contiene los datos obtenidos en la interfaz. En este caso, contiene los atributos ya modificados de la palabra.
      * @return String mensaje en el que muestra el resultado de la operación
      */
@@ -259,7 +259,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Método que elimina la palabra modificada para reemplazarla por la ya creada y/o edita.
+     * Metodo que elimina la palabra modificada para reemplazarla por la ya creada y/o edita.
      * Convierte la primera letra en mayuscula y obtiene su codigo ASCII para hacer la eliminación.
      * @param captureDataSendEditWord  Array unidimensional que contiene los datos obtenidos en la interfaz. En este caso, contiene la palabra a la que se le quiere eliminar.
      */

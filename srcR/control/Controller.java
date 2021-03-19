@@ -8,6 +8,9 @@ import view.ViewWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase que contiene las acciones del controlador de acuerdo con los botones
+ */
 public class Controller implements ActionListener {
 
     private Actioner actioner;
@@ -27,6 +30,10 @@ public class Controller implements ActionListener {
 
     }
 
+    /**
+     * Metodo que contiene las acciones de los botones
+     * @param event
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()){
@@ -55,11 +62,6 @@ public class Controller implements ActionListener {
                 actioner.inactive( Actioner.DELETEWORDMENUWINDOW );
                 actioner.active( Actioner.DELETEWORDMENUWINDOW );
                 break;
-
-
-
-
-
 
             //WINDOW ADDEDIT
 
@@ -101,11 +103,7 @@ public class Controller implements ActionListener {
                 }else {
                     actioner.showMessage("Palabra no encontrada");
                 }
-
-
-
                 break;
-
 
             case Actioner.SEARCHEDITWORD:
                 String[] captureDataSendEditWord = actioner.captureData(Actioner.SEARCHEDITWORD);
@@ -121,8 +119,6 @@ public class Controller implements ActionListener {
                     actioner.active( Actioner.SEARCHEDITWORD );
                  }
                 break;
-
-
 
             case Actioner.SEARCHDELETEWORD:
                 String[] captureDataDeleteWWord = actioner.captureData(Actioner.SEARCHDELETEWORD);
@@ -160,9 +156,6 @@ public class Controller implements ActionListener {
                 actioner.showData(dictionaryManagement.showAllLetters(), Actioner.VIEWALLLETTER);
                 actioner.active( Actioner.VIEWALLLETTER);
                 break;
-
         }
-
-
     }
 }

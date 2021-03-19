@@ -31,7 +31,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método para verificar si un árbol está vacio
+	 * Metodo para verificar si un árbol está vacio
 	 * @return boolean con la raíz nula.
 	 */
 	public boolean isEmpty() {
@@ -39,7 +39,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que agrega un nodo. Verifica si esta vacio para ponerlo con el nodo.
+	 * Metodo que agrega un nodo. Verifica si esta vacio para ponerlo con el nodo.
 	 * Crea dos nodos para que uno tenga una raíz y se pueda anexar al otro nodo. Enlazandolos con el nodo padre o a quien le corresponda.
 	 * @param info Contiene la información de un nodo.
 	 */
@@ -63,7 +63,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método para encontrar el nodo. Recibe la información de este nodo y con un comparador, verifica tanto el nodo izquierdo como el derecho, sino lo encuentra, sigue buscando
+	 * Metodo para encontrar el nodo. Recibe la información de este nodo y con un comparador, verifica tanto el nodo izquierdo como el derecho, sino lo encuentra, sigue buscando
 	 * @param info Contiene la información de un nodo.
 	 * @return Node<T> La palabra o el nodo obtenido.
 	 */
@@ -79,7 +79,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método para organizar las palabras o los nodos.
+	 * Metodo para organizar las palabras o los nodos.
 	 * @return ArrayList<T> con los nodos organizados de acuerdo con los nodos orgenados.
 	 */
 	public ArrayList<T> listInOrder(){
@@ -89,7 +89,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método recursivo para organizar los nodos izquierda o derecha.
+	 * Metodo recursivo para organizar los nodos izquierda o derecha.
 	 * @param node Contiene el nodo del arbol.
 	 */
 	private void inOrder(Node<T> node) {
@@ -101,7 +101,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que verifica el grado del nodo. El grado del nodo verifica si existen nodos por izquierda o derecha.
+	 * Metodo que verifica el grado del nodo. El grado del nodo verifica si existen nodos por izquierda o derecha.
 	 * @param node Contiene el nodo del arbol.
 	 * @return byte con el número del nodo,
 	 */
@@ -118,7 +118,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que retorno el padre del nodo. Ingresa dentro del ciclo el cual recorre el arbol verificando que el izuqierdo y derecho sea diferente del nodo a buscar.
+	 * Metodo que retorno el padre del nodo. Ingresa dentro del ciclo el cual recorre el arbol verificando que el izuqierdo y derecho sea diferente del nodo a buscar.
 	 * @param node Contiene el nodo del arbol.
 	 * @return Node<T> Nodo padre.
 	 */
@@ -135,7 +135,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que muestra el peso del arbol o el total de los nodos. Ingresa al método weight.
+	 * Metodo que muestra el peso del arbol o el total de los nodos. Ingresa al Metodo weight.
 	 * @return int con el peso del arbol
 	 */
 	public int weightTree() {
@@ -143,9 +143,9 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método recursivo para obtener el peso del arbol mientras que la raíz sea diferente de null. Obtiene los nodos y los va sumando uno a uno.
+	 * Metodo recursivo para obtener el peso del arbol mientras que la raíz sea diferente de null. Obtiene los nodos y los va sumando uno a uno.
 	 * @param root Contiene la raíz del arbol.
-	 * @return int con el número obtenido del método recursivo.
+	 * @return int con el número obtenido del Metodo recursivo.
 	 */
 	private int weight(Node<T> root) {
 		if (root != null) {
@@ -155,7 +155,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método para verificar si el nodo a eliminar es una hoja, tiene un hijo o tiene dos hijos y que no afecten la estructura.
+	 * Metodo para verificar si el nodo a eliminar es una hoja, tiene un hijo o tiene dos hijos y que no afecten la estructura.
 	 * @param node Contiene el nodo del arbol.
 	 * @return T nodo eliminado
 	 */
@@ -168,7 +168,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que elimina una hoja, si es el caso. Verifica si el nodo es la raíz, cuandoruccre, lo pone null o elimina.
+	 * Metodo que elimina una hoja, si es el caso. Verifica si el nodo es la raíz, cuandoruccre, lo pone null o elimina.
 	 * Cuando no se cumple la condición, encuentra al nodo padre y verifica si esta por izquierda o derecha para proceder a la eliminación
 	 * @param node Contiene el nodo del arbol.
 	 * @return T información del nodo eliminado
@@ -188,7 +188,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método que elimina el nodo que contiene un hijo. Recibe el nodo y la información de ese nodo la almacena en la clase T.
+	 * Metodo que elimina el nodo que contiene un hijo. Recibe el nodo y la información de ese nodo la almacena en la clase T.
 	 * Si el nodo es igual a la raíz, la raiz pasa a obtener el nodo izquierdo o derecho segun sea el caso.
 	 * Cuando no, busca al padre y dentro del condicional, obtiene el nodo izquierdo o derecho (de acuerdo con el caso) y los agrega con su respectivo nodo
 	 * @param node Contiene el nodo del arbol.
@@ -210,7 +210,7 @@ public class BinaryTree<T> {
 	}
 
 	/**
-	 * Método de eliminar un nodo que contenga dos hijos. En este método, se crea un nodo sustituto que obtenga el nodo derecho, y un nodo padre sustituto.
+	 * Metodo de eliminar un nodo que contenga dos hijos. En este Metodo, se crea un nodo sustituto que obtenga el nodo derecho, y un nodo padre sustituto.
 	 * Con el ciclo while, se recorre el arbol mientras que el sustituto de ese arbol al obtener el izquierdo sea diferente de null, adentro del ciclo, el padre sustituto ahora es el nodo sustitudo y este obtiene el nodo izquierdo.
 	 *Si el nodo padre sustituto es diferente de null, se cambia el nodo izquierdo enviandole el sustituto del lado derecho. Luego el sustituto obtiene el nodo derecho cambiandoselo
 	 * Luego de salir del condicional, el sustituto obtiene el nodo izquierdo y se crea un nuevo padre, el cual va a tener el cambio de alli.

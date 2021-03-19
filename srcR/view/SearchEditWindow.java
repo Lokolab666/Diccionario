@@ -5,6 +5,9 @@ import control.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que sirve para buscar una palabra, ya sea para ver, editar o eliminarla
+ */
 public class SearchEditWindow extends JPanel {
 
     //Instructions

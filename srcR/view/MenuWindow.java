@@ -5,6 +5,9 @@ import control.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que contiene los botones para que el usuario seleccione su opcion de preferencia
+ */
 public class MenuWindow extends JPanel{
 
     //Texts

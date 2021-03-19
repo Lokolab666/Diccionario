@@ -5,6 +5,9 @@ import control.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que contiene la ventana principal, junto con lo que debe hacer cada boton de acuerdo con su accion. Contiene los mismos metodos que el Actioner
+ */
 public class MainWindow extends JFrame implements Actioner {
 
     //BackGround
@@ -18,7 +21,9 @@ public class MainWindow extends JFrame implements Actioner {
     private ViewWindow viewWindow;
 
 
-
+    /**
+     * Metodo que contiene la inicializacion de los componentes para todas las ventanas
+     */
     public MainWindow(){
         //Features
         this.setDefaultCloseOperation( EXIT_ON_CLOSE );
@@ -38,8 +43,9 @@ public class MainWindow extends JFrame implements Actioner {
     }
 
 
-
-
+    /**
+     * Metodo que contiene los componentes y ubicacion, junto con la descripcion.
+     */
     public void components() {
         //Header
         header = new JLabel("");
@@ -75,7 +81,9 @@ public class MainWindow extends JFrame implements Actioner {
     }
 
 
-
+    /**
+     * Metodo que agrega los componentes a la ventana
+     */
     public void addComponent() {
         add(menuWindow);
         add(header);
@@ -84,6 +92,10 @@ public class MainWindow extends JFrame implements Actioner {
     }
 
 
+    /**
+     * Metodo que envia el controlador a las demas ventanas
+     * @param controller Funciona como el control para todos los botones.
+     */
     public void initialMenu( Controller controller ){
         setVisible(true);
 
@@ -96,6 +108,10 @@ public class MainWindow extends JFrame implements Actioner {
     }
 
 
+    /**
+     * Metodo para activar las ventanas y componentes
+     * @param window Sirve para contener la ventana a la cual participan las acciones
+     */
     @Override
     public void active(String window) {
 
@@ -190,6 +206,10 @@ public class MainWindow extends JFrame implements Actioner {
 
     }
 
+    /**
+     * Metodo para desactivar las ventanas y componentes
+     * @param window Sirve para contener la ventana a la cual participan las acciones
+     */
     @Override
     public void inactive(String window) {
 
@@ -318,6 +338,11 @@ public class MainWindow extends JFrame implements Actioner {
 
     }
 
+    /**
+     * Metodo para obtener o capturar los datos
+     * @param window Sirve para contener la ventana a la cual participan las acciones
+     * @return String[] con los datos obtenidos
+     */
     @Override
     public String[] captureData(String window) {
 
@@ -391,6 +416,10 @@ public class MainWindow extends JFrame implements Actioner {
         return null;
     }
 
+    /**Metodo para mostrar los datos o atributos de acuerdo con la seleccion
+     * @param out Contiene los datos a los cuales se quiere ver la informacion
+     * @param window Sirve para contener la ventana a la cual participan las acciones
+     */
     @Override
     public void showData(String[][] out, String window) {
         cleanTable();
@@ -422,6 +451,10 @@ public class MainWindow extends JFrame implements Actioner {
 
     }
 
+    /**
+     * Metodo ara mostrar el mensaje que indica la operacion
+     * @param message String mensaje en donde indica lo que sucedio de acuerdo con lo que retorna las demas clases
+     */
     @Override
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(null, message);
@@ -437,6 +470,9 @@ public class MainWindow extends JFrame implements Actioner {
         viewWindow.getBoxSaveWordToView().setText("");
     }
 
+    /**
+     * Metodo que limpia las tablas para no mostrar datos duplicados
+     */
     private void cleanTable(){
         for ( int i = 0; i < viewWindow.getTableModelShowLetter().getRowCount(); i++ ){
             viewWindow.getTableModelShowLetter().removeRow(i);

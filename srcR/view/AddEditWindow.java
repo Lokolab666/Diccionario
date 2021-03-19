@@ -5,6 +5,9 @@ import control.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que contiene la ventana para agregar o editar una palabra. Funciona para ambos aspectos
+ */
 public class AddEditWindow extends JPanel {
 
     // Instructions
@@ -30,6 +33,9 @@ public class AddEditWindow extends JPanel {
         addComponent();
     }
 
+    /**
+     * Metodo que contiene los componentes y ubicacion, junto con la descripcion.
+     */
     private void components(){
         //Texts
         textToAddWord = new JLabel("Palabra");
@@ -69,6 +75,9 @@ public class AddEditWindow extends JPanel {
 
     }
 
+    /**
+     *Metodo que les da estilos personalizados a los componentes.
+     */
     private void styleComponent(){
         textToAddWord.setFont(new Font("Brawler", Font.PLAIN, 15));
         textToAddWord.setForeground(Color.WHITE);
@@ -93,6 +102,9 @@ public class AddEditWindow extends JPanel {
 
     }
 
+    /**
+     * Metodo que agrega los componentes a la ventana
+     */
     private void addComponent(){
         //Texts
         add(textToAddWord);
@@ -110,6 +122,10 @@ public class AddEditWindow extends JPanel {
         add(buttonBackToMenu);
     }
 
+    /**
+     * Metodo que agrega el controlador y las acciones a los botones.
+     * @param controller Funciona como el control para todos los botones.
+     */
     public void actionAddEditWindow(Controller controller){
 
         //SetActionCommand

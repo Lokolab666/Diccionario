@@ -1,5 +1,8 @@
 package view;
 
+/**
+ * Clase que contiene la interfaz del programa. Contiene las acciones a las cuales se les asigna los botones
+ */
 public interface Actioner {
 
     //Menu Window
@@ -25,7 +28,15 @@ public interface Actioner {
     public static String VIEWSEARHALETTER = "searchToWordForView";
 
 
-
+    /**
+     * Contiene los métodos para los que hace funcionar los botoner
+     * active para activar las ventanas y componentes
+     * inactive para desactivar las ventanas y componentes
+     * captureData para obtener o capturar los datos
+     * showData para mostrar los datos o atributos de acuerdo con la seleccion
+     * showMessage para mostrar el mensaje que indica la operacion
+     * @param window Sirve para contener la ventana a la cual participan las acciones
+     */
     public void active(String window);
     public void inactive(String window);
     public String[] captureData(String window);

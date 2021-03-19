@@ -6,6 +6,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Clase que contiene la ventana para ver la informacion de cada palabra
+ */
 public class ViewWindow extends JPanel {
 
     //Text

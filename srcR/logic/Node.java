@@ -24,7 +24,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método para obtener la información de un nodo
+	 * Metodo para obtener la información de un nodo
 	 * @return T con la información
 	 */
 	public T getInfo() {
@@ -32,7 +32,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método que cambia la información de un nodo.
+	 * Metodo que cambia la información de un nodo.
 	 * @param info Contiene la información del nodo editada.
 	 */
 	public void setInfo(T info) {
@@ -40,7 +40,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método que obtiene el izquierdo de ese nodo.
+	 * Metodo que obtiene el izquierdo de ese nodo.
 	 * @return Node<T> con el izquierdo.
 	 */
 	public Node<T> getLeft() {
@@ -48,7 +48,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método que cambia el izquierdo de ese nodo
+	 * Metodo que cambia el izquierdo de ese nodo
 	 * @param left Cambia el izquierdo de ese nodo.
 	 */
 	public void setLeft(Node<T> left) {
@@ -56,7 +56,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método que obtiene el derecho de ese nodo.
+	 * Metodo que obtiene el derecho de ese nodo.
 	 * @return Node<T> con el derecho.
 	 */
 	public Node<T> getRight() {
@@ -64,7 +64,7 @@ public class Node<T> {
 	}
 
 	/**
-	 * Método que cambia el derecho de ese nodo.
+	 * Metodo que cambia el derecho de ese nodo.
 	 * @param right ambia el derecho de ese nodo.
 	 */
 	public void setRight(Node<T> right) {
